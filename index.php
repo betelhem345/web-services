@@ -1,8 +1,9 @@
 <html>
 <head>
-<title>Bond Web Service Demo</title>
+<title>Urban Movies</title>
 <style>
 	body {font-family:georgia;}
+  body style {background-color:orange;}
 
  .film{
     border:1px solid #E77DC2;
@@ -10,6 +11,7 @@
     padding: 5px;
     margin-bottom:5px;
     position:relative;   
+    background-color:orange;
   }
  
   .pic{
@@ -28,7 +30,7 @@
 
 <script type="text/javascript">
 
-function bondTemplate(film){
+function moviesTemplate(film){
   return `
   			<div class="film">
             <b>Film</b>: ${film.Film}<br />
@@ -37,7 +39,7 @@ function bondTemplate(film){
             <b>Director</b>: ${film.Director}<br />
             <b>Rating</b>: ${film.Rating}<br />
             <b>Stars</b>: ${film.Stars}<br />
-            <div class="pic"><img src="thumbnails/${film.Image}"  /></div>
+            <div class="pic"><img src="image.jpg${film.Image}"  /></div>
   
   `;
 }
@@ -64,7 +66,7 @@ $(document).ready(function() {
 
     //loop through data.films and place on page
     $.each(data.films,function(i,item){
-      let myData = bondTemplate(item);
+      let myData = moviesTemplate(item);
       $("<div></div>").html(myData).appendTo("#films");
       
     });
@@ -88,10 +90,10 @@ alert('Error - ' + xhr.status + ': ' + xhr.statusText);
 </script>
 </head>
 	<body>
-	<h1>Bond Web Service</h1>
-		<a href="year" class="category">Bond Films By Year</a><br />
-		<a href="box" class="category">Bond Films By International Box Office Totals</a>
-		<h3 id="filmtitle">Title Will Go Here</h3>
+	<h1>Urban Movies Service</h1>
+		<a href="year" class="category">Urban Movies By Year</a><br />
+		<a href="box" class="category">Urban Movies By Ratings</a>
+		<h3 id="filmtitle">Urban Movies</h3>
 		<div id="films">
       <!--
 			<div class="film">
